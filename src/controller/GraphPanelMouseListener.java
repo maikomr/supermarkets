@@ -3,8 +3,6 @@ package controller;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-import view.Node2D;
-
 public class GraphPanelMouseListener implements MouseListener {
 
 	private MainController ctrl;
@@ -32,6 +30,13 @@ public class GraphPanelMouseListener implements MouseListener {
 				ctrl.setClickCount(ctrl.getClickCount() + 1);
 			}
 			break;
+		case SET_LOCATION:
+			ctrl.setSource(e.getPoint());
+			ctrl.setCurrentAction(Action.NONE);
+			break;
+		case SET_TARGET:
+			ctrl.setTarget(e.getPoint());
+			ctrl.setCurrentAction(Action.NONE);
 		default:
 			break;
 		}
@@ -39,26 +44,18 @@ public class GraphPanelMouseListener implements MouseListener {
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override
 	public void mouseExited(MouseEvent e) {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
-		// TODO Auto-generated method stub
-
 	}
 
 }

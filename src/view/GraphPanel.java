@@ -59,8 +59,27 @@ public class GraphPanel extends JPanel {
 				to2D = node;
 		}
 		if (from2D != null & to2D != null && from2D != to2D) {
-			Edge2D edge2D = new Edge2D(from2D, to2D, edge.getCost());
+			Edge2D edge2D = new Edge2D(from2D, to2D, edge);
 			edges.add(edge2D);
+		}
+	}
+
+	public void resetColors() {
+		for (Node2D node : nodes) {
+			node.setColor(Color.LIGHT_GRAY);
+		}
+		for (Edge2D edge : edges) {
+			edge.setColor(Color.BLACK);
+		}
+	}
+
+	public void drawPath(List<Edge<String>> path) {
+		for (Edge<String> edge : path) {
+			for (Edge2D edge2D : edges) {
+				if (edge2D.getEdge() == edge) {
+					edge2D.setColor(Color.BLUE);
+				}
+			}
 		}
 	}
 }
