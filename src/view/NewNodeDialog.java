@@ -26,4 +26,12 @@ public class NewNodeDialog extends JDialog {
 		setMinimumSize(new Dimension(250, 150));
 		setDefaultCloseOperation(JDialog.HIDE_ON_CLOSE);
 	}
+
+	public String getInputValue() {
+		return inputNodeName.getText();
+	}
+
+	public JOptionPane getOptionPane() {
+		return optionPane;
+	}
 }

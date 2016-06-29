@@ -17,7 +17,7 @@ public class Node2D extends JComponent {
 	}
 
 	@Override
-	public void paintComponents(Graphics g) {
+	public void paintComponent(Graphics g) {
 		g.setColor(Color.LIGHT_GRAY);
 		g.fillOval(getX(), getY(), getWidth(), getHeight());
 		g.setColor(Color.BLACK);

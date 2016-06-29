@@ -24,12 +24,13 @@ public class Graph<T> {
 			nodes.add(node);
 	}
 
-	public void addEdge(Node<T> firstEndPoint, Node<T> secondEndPoint, int cost) {
+	public Edge<T> addEdge(Node<T> firstEndPoint, Node<T> secondEndPoint, int cost) {
 		addNode(firstEndPoint);
 		addNode(secondEndPoint);
 		Edge<T> edge = new Edge<>(firstEndPoint, secondEndPoint, cost);
 		firstEndPoint.addNeighbour(edge);
 		secondEndPoint.addNeighbour(edge);
+		return edge;
 	}
 
 	@Override

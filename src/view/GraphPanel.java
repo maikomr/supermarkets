@@ -7,17 +7,19 @@ import java.util.List;
 
 import javax.swing.JPanel;
 
-import controller.GraphPanelMouseListener;
+import model.Edge;
 import model.Node;
 
 public class GraphPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 
 	private List<Node2D> nodes;
+	private List<Edge2D> edges;
 
 	public GraphPanel() {
 		super();
 		nodes = new ArrayList<>();
+		edges = new ArrayList<>();
 		initComponent();
 	}
 
@@ -28,18 +30,37 @@ public class GraphPanel extends JPanel {
 	public void addNode(Node<String> node, int x, int y) {
 		Node2D node2D = new Node2D(node);
 		node2D.setBounds(x, y, 50, 50);
-		nodes.add(node2D);
+		add(node2D);
+		nodes.add(node2D); // TODO try to eliminate this row
 		repaint();
 	}
 
 	@Override
 	public void paint(Graphics g) {
 		super.paint(g);
-//		BufferedImage img = new BufferedImage(200, 100, BufferedImage.TYPE_INT_ARGB);
-//		Graphics buffer = img.getGraphics();
 		for (Node2D node : nodes) {
-			node.paintComponents(g);
+			node.paintComponent(g);
 		}
-//		g.drawImage(img, 0, 0, this);
+		for (Edge2D edge : edges) {
+			edge.paintComponent(g);
+		}
+	}
+
+	public void addEdge(Edge<String> edge) {
+		Node<String> from = edge.getFirstEndPoint();
+		Node<String> to = edge.getSecondEndPoint();
+		Node2D from2D = null, to2D = null;
+		for (Node2D node : nodes) {
+			if (node.getNode() == from)
+				from2D = node;
+		}
+		for (Node2D node : nodes) {
+			if (node.getNode() == to)
+				to2D = node;
+		}
+		if (from2D != null & to2D != null && from2D != to2D) {
+			Edge2D edge2D = new Edge2D(from2D, to2D, edge.getCost());
+			edges.add(edge2D);
+		}
 	}
 }

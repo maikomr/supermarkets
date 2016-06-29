@@ -16,6 +16,7 @@ public class ToolBarActionListener implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent event) {
 		JButton button = (JButton) event.getSource();
+		ctrl.setClickCount(0);
 		switch (button.getName()) {
 		case "newNodeBtn":
 			ctrl.setCurrentAction(Action.NEW_NODE);

@@ -10,7 +10,8 @@ public class MainView extends JFrame {
 	public MainView() {
 		super("Supermarket");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setMinimumSize(new Dimension(600, 400));
+		setMinimumSize(new Dimension(800, 600));
+		setResizable(false);
 		setLocationRelativeTo(null);
 	}
 }

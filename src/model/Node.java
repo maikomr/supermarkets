@@ -56,11 +56,7 @@ public class Node<T> implements Comparable<Node<T>> {
 
 	@Override
 	public String toString() {
-		String neighbours = new String();
-		for (Edge<T> edge : neighbors) {
-			neighbours += edge.getNeighbourOf(this).getValue() + ", ";
-		}
-		return value.toString() + " -> " + neighbours;
+		return value.toString() + " -> " + neighbors;
 	}
 
 	@Override
@@ -71,7 +67,7 @@ public class Node<T> implements Comparable<Node<T>> {
 	public void setParent(Edge<T> parent) {
 		this.parent = parent;
 	}
-	
+
 	public Edge<T> getParent() {
 		return parent;
 	}
